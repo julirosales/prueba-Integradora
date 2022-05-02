@@ -11,4 +11,8 @@ userController.register = (req, res) => {
   res.render("register");
 };
 
+userController.store = (req, res) => {
+  res.render("register");
+};
+
 module.exports = userController;
