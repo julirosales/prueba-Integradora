@@ -1,0 +1,97 @@
+main {
+    margin: 350px auto 50px auto;
+  }
+  .form-login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    justify-content: center;
+  }
+  .container-input,
+  .container-preguntas {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .not-usuario {
+    display: flex;
+  }
+  
+  .not-usuario p {
+    margin-right: 10px;
+  }
+  
+  .input1-group,
+  .input2-group {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .input1-group input,
+  .input2-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+  }
+  .btn-ingresar {
+    margin: 25px 0px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #3483fa;
+    cursor: pointer;
+  }
+  .btn-ingresar:hover {
+    background-color: #2968c8;
+  }
+  .contra-olvidada {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+  .registro-login {
+    text-decoration: none;
+    color: #3483fa;
+    cursor: pointer;
+  }
+  .registro-login:hover {
+    color: #2968c8;
+  }
+  .img-footer {
+    font-size: 30px;
+  }
+  
+  @media (min-width: 361px) {
+    .form-login {
+      padding: 30px;
+    }
+  }
+  @media (min-width: 768px) {
+    .input1-group,
+    .input2-group {
+      width: 100%;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  
+    .input1-group input,
+    .input2-group input {
+      width: 30%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+    }
+    main {
+      margin: 380px auto 50px auto;
+    }
+    .container-preguntas {
+      font-size: 16px;
+    }
+  }
+  

@@ -1,0 +1,97 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 380px auto 50px auto;
+  }
+  .datosUsuario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .datosUsuario input {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .fecha {
+    margin: 10px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .container-perfilUsuario,
+  .container-intereses {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+  
+  label {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .intereses-checkbox {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .img-footer {
+    font-size: 30px;
+  }
+  
+  .imagenDelPerfil {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+  .imagenDelPerfil input {
+    margin: 15px 0;
+  }
+  .container-password {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container-password input {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .container-btn {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .container-btn button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #3483fa;
+    cursor: pointer;
+  }
+  
+  .container-btn button:hover {
+    background-color: #0022aa;
+  }
+  
+  @media (min-width: 361px) {
+    .form {
+      width: 70%;
+      margin: 400px auto 50px auto;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .form {
+      width: 40%;
+      margin: 380px auto 50px auto;
+    }
+  }
+  
