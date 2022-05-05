@@ -26,7 +26,7 @@ const validaciones = [
   body("nombreUsuario").notEmpty().withMessage("Debes Completar este campo"),
   body("email").isEmail().withMessage("debes copmpletar un EMAIL valido"),
   body("radio").notEmpty().withMessage("Debes Completar este campo"),
-  body("password").isPassword().withMessage("contraseña alfanumerica"),
+  body("password").notEmpty().withMessage("contraseña alfanumerica"),
 ];
 
 router.get("/login", userController.login);
@@ -37,6 +37,6 @@ router.get(
   userController.register
 );
 //procesamiento de formulario de register y agregamos middelware de express-validator
-router.post("/home", validaciones, userController.store);
+router.post("/register", validaciones, userController.store);
 
 module.exports = router;

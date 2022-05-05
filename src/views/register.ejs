@@ -66,21 +66,19 @@
           </li>
         </ul>
       </nav>
-      <section class="img-banner">
-      </section>
+      <section class="img-banner"></section>
       <div class="burger-container">
         <div class="burger-menu">
           <i class="fas fa-bars burger"></i>
         </div>
       </div>
     </header>
-    <form action="" method="POST" class="form">
+    <form action="/user/register" method="POST" class="form">
       <div class="datosUsuario">
         <input
           type="text"
           name="nombre"
           placeholder="Nombre y Apellido"
-          required
           minlength="8"
           maxlength="20"
         />
@@ -89,17 +87,10 @@
           name="nombreUsuario"
           id="nombreUsuario"
           placeholder="Nombre de Usuario"
-          required
           minlength="4"
           maxlength="15"
         />
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          required
-        />
+        <input type="email" name="email" id="email" placeholder="Email" />
       </div>
       <div class="container-perfilUsuario">
         <label for="perfilUsuario">Perfil Usuario</label>
@@ -133,7 +124,6 @@
           name="password"
           id="password"
           placeholder="Contraseña"
-          required
           pattern="[a-z]{8}"
           maxlength="8"
           title="8 letras minusculas"
@@ -143,7 +133,6 @@
           name="password-repit"
           id="password-repi"
           placeholder="Repetir Contraseña"
-          required
           pattern="[a-z]{8}"
           maxlength="8"
           title=" 8 letras minusculas"
