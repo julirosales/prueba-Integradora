@@ -73,70 +73,104 @@
         </div>
       </div>
     </header>
-    <form action="/user/register" method="POST" class="form">
+
+    <!--<% if (locals.errors){ for(let oneError in errors){ %> -->
+    <!-- <p><%= errors[oneError].msg %></p> -->
+    <!-- <% } }  %> -->
+
+    <!-- <% if(locals && locals.mensajeDeError){ %> -->
+    <!--  <% for (let error in mensajeDeError){ %> -->
+    <!-- <p><%= mensajeDeError[error].msg %></p> -->
+    <!-- <% }%> <% } %> -->
+    <!-- ambos bloques podes comprobar que el mensaje de error es enviado -->
+
+    <form
+      action="/user/register"
+      method="POST"
+      class="form"
+      enctype="multipart/form-data"
+    >
       <div class="datosUsuario">
-        <input
-          type="text"
-          name="nombre"
-          placeholder="Nombre y Apellido"
-          minlength="8"
-          maxlength="20"
-        />
-        <input
-          type="text"
-          name="nombreUsuario"
-          id="nombreUsuario"
-          placeholder="Nombre de Usuario"
-          minlength="4"
-          maxlength="15"
-        />
-        <input type="email" name="email" id="email" placeholder="Email" />
+        <div>
+          <input type="text" name="nombreyapellido" placeholder="Nombre y
+          Apellido" minlength="8" maxlength="20" class= "nombreyapellido <%=
+          locals.errors && errors.nombreyapellido ? "cajadeinput" : null %> "
+          value="<%= locals.oldData ? oldData.nombreyapellido : null %>"/> <% if
+          (locals.errors && errors.nombreyapellido){ %>
+          <div class="rojoErrores"><%= errors.nombreyapellido.msg %></div>
+          <% } %>
+        </div>
+        <div>
+          <input type="text" name="nombreUsuario" id="nombreUsuario"
+          placeholder="Nombre de Usuario" minlength="4" maxlength="15" class=
+          "nombreUsuario <%= locals.errors && errors.nombreUsuario ?
+          "cajadeinput" : null %> " value="<%= locals.oldData ?
+          oldData.nombreUsuario : null %>"/> <% if (locals.errors &&
+          errors.nombreUsuario){ %>
+          <div class="rojoErrores"><%= errors.nombreUsuario.msg %></div>
+          <% } %>
+        </div>
+        <div>
+          <input type="email" name="email" id="email" placeholder="Email" class=
+          "email <%= locals.errors && errors.email ? "cajadeinput" : null %> "
+          value="<%= locals.oldData ? oldData.email : null %>"/> <% if
+          (locals.errors && errors.email){ %>
+          <div class="rojoErrores"><%= errors.email.msg %></div>
+          <% } %>
+        </div>
       </div>
       <div class="container-perfilUsuario">
         <label for="perfilUsuario">Perfil Usuario</label>
-        <label for="perfilUsuario">
+        <label for="perfilUsuario" name="perfilUsuario">
           <input
-            type="radio"
+            type="checkbox"
             name="radio"
             value="Comprador"
             id="radio-comprador"
-            checked
           />Comprador
           <input
-            type="radio"
+            type="checkbox"
             name="radio"
             value="Vendedor"
             id="radio-vendedor"
-          />Vendedor</label
-        >
+          />Vendedor
+        </label>
       </div>
-      <label for="imagenDelPerfil" class="imagenDelPerfil">
-        Imagen de Perfil
+      <div class="container-perfilUsuario">
+        <label for="imagenDelPerfil" class="imagenDelPerfil">
+          Imagen de Perfil
+        </label>
         <input
           type="file"
           id="imagenDelPrefil"
           name="imagenDelPerfil"
           accept=".jpg, .png"
-      /></label>
+        />
+        <% if (locals.errors && errors.imagenDelPerfil){ %>
+        <div class="rojoErrores"><%= errors.imagenDelPerfil.msg %></div>
+        <% } %>
+      </div>
       <div class="container-password">
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Contraseña"
-          pattern="[a-z]{8}"
-          maxlength="8"
-          title="8 letras minusculas"
-        />
-        <input
-          type="password"
-          name="password-repit"
-          id="password-repi"
-          placeholder="Repetir Contraseña"
-          pattern="[a-z]{8}"
-          maxlength="8"
-          title=" 8 letras minusculas"
-        />
+        <div>
+          <input type="password" name="password" id="password"
+          placeholder="Contraseña" pattern="[a-z]{8}" maxlength="8" title="8
+          letras minusculas" class= "password <%= locals.errors &&
+          errors.password ? "cajadeinput" : null %> value="<%= locals.oldData ?
+          oldData.password : null %>" "/> <% if (locals.errors &&
+          errors.password){ %>
+          <div class="rojoErrores"><%= errors.password.msg %></div>
+          <% } %>
+        </div>
+        <div>
+          <input type="password" name="passwordRepit" id="password-repi"
+          placeholder="Repetir Contraseña" pattern="[a-z]{8}" maxlength="8"
+          title=" 8 letras minusculas" class= "passwordRepit <%= locals.errors
+          && errors.passwordRepit ? "cajadeinput" : null %> " value="<%=
+          locals.oldData ? oldData.passwordRepit : null %>"/> <% if
+          (locals.errors && errors.passwordRepit){ %>
+          <div class="rojoErrores"><%= errors.passwordRepit.msg %></div>
+          <% } %>
+        </div>
       </div>
       <div class="container-btn">
         <button type="submit" class="btn-enviar">ENVIAR</button>

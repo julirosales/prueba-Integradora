@@ -16,6 +16,9 @@ app.use(methodOverride("_method"));
 
 const PORT = process.env.PORT || 3045;
 
+//este use hacer que lo qe se envie en el form por body te lo traiga el dato
+app.use(express.urlencoded({extended: false}))
+
 app.use(express.static("public"));
 //para poder usar temple engine EJS
 app.set("view engine", "ejs");

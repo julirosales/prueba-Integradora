@@ -14,9 +14,21 @@ userController.register = (req, res) => {
   res.render("register");
 };
 
-userController.store = (req, res) => {
-  let errors = validationResult(req);
-  res.send(errors);
+userController.procesRegister = (req, res) => {
+  let resultValidation = validationResult(req);
+  if (resultValidation.errors.length > 0) {
+    /* o puedo hacer (!errors.isEmpy()) */
+    return res.render("register", {
+      errors: resultValidation.mapped(), //o podemos hacer mensajeDeError : resultValidation.mapped();
+      oldData: req.body,
+    });
+  }
+  /* return res.send(errors); */ //lo hago para comprobar y ver que trae cada error
+
+  //hice esa linea para verificar lo que me traia en los campos
+  /*  return res.send({ body: req.body, file: req.file }) */
+
+  return res.send("todo los datos ok");
 };
 
 module.exports = userController;
