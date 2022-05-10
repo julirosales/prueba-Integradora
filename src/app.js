@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+//para sesiones agrego esta variable
+const session = require("express-session")
 //traigo las rutas
 const userRouter = require("./routes/userRouter");
 const mainRouter = require("./routes/mainRouter");
@@ -13,6 +15,9 @@ app.use("/", mainRouter);
 app.use("/user", userRouter);
 //uso el methodOverride
 app.use(methodOverride("_method"));
+
+//para que sesion funcione en todos lados
+app.use(session({secret : "es secreto!!"}))
 
 const PORT = process.env.PORT || 3045;
 

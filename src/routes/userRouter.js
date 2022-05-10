@@ -6,7 +6,7 @@ const path = require("path");
 //vamos a requerir multer
 const multer = require("multer");
 //vamos a requerir express-validator
-const { body } = require("express-validator");
+const { body, check } = require("express-validator");
 
 //vamos a configurar multer
 const storage = multer.diskStorage({
@@ -53,7 +53,12 @@ const validaciones = [
   }),
 ];
 
+const validacionesLogin = [check("emailLogin").isEmail()
+.withMessage("Debes copmpletar un Formato valido"),
+check("passwordLogin").isLength({min : 8}).withMessage("La contraseña debe tener al menos 8 caracteres")]
+
 router.get("/login", userController.login);
+router.post("/login",validacionesLogin, userController.procesLogin);
 //vamos a implementar multer como middelware en get register,despues del single va el nombre del unput que deseamos procesar
 router.get("/register", userController.register);
 //procesamiento de formulario de register y agregamos middelware de express-validator

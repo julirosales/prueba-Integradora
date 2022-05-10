@@ -31,4 +31,9 @@ userController.procesRegister = (req, res) => {
   return res.send("todo los datos ok");
 };
 
+userController.procesLogin= (req,res)=>{
+  let resultValidationLogin = validationResult(req)
+  return res.send(resultValidationLogin)
+}
+
 module.exports = userController;
