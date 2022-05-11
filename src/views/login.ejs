@@ -81,6 +81,16 @@
       </div>
     </header>
     <main>
+      <% if (typeof errors != "undefined"){ %>
+        <p>ERROR</p>
+        <ul>
+          <% for (let i =0; i < errors.length; i++){ %>
+          <li>
+            <%= errors[i].msg %>
+          </li>
+         <% }%>
+        </ul>
+      <%}%>
       <form action="/user/login" method="POST" class="form-login">
         <div class="container-input">
           <div class="input1-group">

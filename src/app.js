@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 //para sesiones agrego esta variable
 const session = require("express-session")
+const cookieParser = require('cookie-parser')
 //traigo las rutas
 const userRouter = require("./routes/userRouter");
 const mainRouter = require("./routes/mainRouter");
@@ -17,7 +18,11 @@ app.use("/user", userRouter);
 app.use(methodOverride("_method"));
 
 //para que sesion funcione en todos lados
-app.use(session({secret : "es secreto!!"}))
+app.use(session({secret: 'top secret',
+resave: false,
+saveUninitialized: true,
+cookie: { secure: true }}));
+app.use(cookieParser());
 
 const PORT = process.env.PORT || 3045;
 
