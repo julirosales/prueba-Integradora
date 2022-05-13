@@ -4,9 +4,18 @@
   "emailLogin" : "isidorajulieta1965@gmail.com", 
   "passwordLogin" : "12345678"
 },
-{"nombreyapellido":"Carlos Puente",
+
+{"id": 2,
+  "nombreyapellido":"Carlos Puente",
   "nombreDeUsuario": "JAIME",
   "emailLogin" : "jajaja@gmail.com", 
-    "passwordLogin" : "12345678"
+  "passwordLogin" : "12345678"
+
+},
+{"id": 2,
+  "nombreyapellido":"Carlos Puente",
+  "nombreDeUsuario": "JAIME",
+  "emailLogin" : "jajaja@gmail.com", 
+  "passwordLogin" : "12345678"
 
 }]
