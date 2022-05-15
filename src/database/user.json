@@ -41,5 +41,74 @@
     "password": "aksjkajd",
     "passwordRepit": "kjaskfdj",
     "imageUsuario": "1652575995419--!facebook.png"
+  },
+  {
+    "id": 6,
+    "nombreyapellido": "carla carl",
+    "nombreUsuario": "akjaksjdkasjdfk",
+    "email": "jsdkaj@gjfk.com",
+    "password": "aksjkajd",
+    "passwordRepit": "kjaskfdj",
+    "imageUsuario": "facebook.png--!1652629405460"
+  },
+  {
+    "id": 7,
+    "nombreyapellido": "sdfasdfdsaf",
+    "nombreUsuario": "fdsfsafdsfsdfsa",
+    "email": "ajajaja@gmai.com",
+    "radio": "Vendedor",
+    "password": "fdsafasf",
+    "passwordRepit": "fdsafasf",
+    "imageUsuario": "default-image.png"
+  },
+  {
+    "id": 8,
+    "nombreyapellido": "sdfasdfdsaf",
+    "nombreUsuario": "fdsfsafdsfsdfsa",
+    "email": "ajajaja@gmai.com",
+    "radio": "Comprador",
+    "password": "asdfdasf",
+    "passwordRepit": "fdsafdsf",
+    "imageUsuario": "default-image.png"
+  },
+  {
+    "id": 9,
+    "nombreyapellido": "sdfasdfdsaf",
+    "nombreUsuario": "fdsfsafdsfsdfsa",
+    "email": "ajajaja@gmai.com",
+    "radio": ["Comprador", "Vendedor"],
+    "password": "adfasfda",
+    "passwordRepit": "fsdafsdf",
+    "imageUsuario": "default-image.png"
+  },
+  {
+    "id": 10,
+    "nombreyapellido": "anasdfasasdfas",
+    "nombreUsuario": "lalalalalala",
+    "email": "asd@asd.as",
+    "radio": "Comprador",
+    "password": "sadfdasf",
+    "passwordRepit": "fdsafdsf",
+    "imageUsuario": "default-image.png"
+  },
+  {
+    "id": 11,
+    "nombreyapellido": "jlujulijulijuli",
+    "nombreUsuario": "lalalalalala",
+    "email": "asd@asd.as",
+    "radio": "Comprador",
+    "password": "adadasda",
+    "passwordRepit": "asdadasd",
+    "imageUsuario": "default-image.png"
+  },
+  {
+    "id": 12,
+    "nombreyapellido": "julieta rosales",
+    "nombreUsuario": "jujuju",
+    "email": "isidorajulieta1965@gmail.com",
+    "radio": ["Comprador", "Vendedor"],
+    "password": "$2a$10$mef5jUU4mNG.6WYbn0E0Cu/yx2lLY.b1LuEL80GSWSTg0Yv91tu6i",
+    "passwordRepit": "lalalala",
+    "imageUsuario": "default-image.png"
   }
 ]

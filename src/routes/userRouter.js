@@ -2,11 +2,11 @@ const express = require("express");
 const userController = require("../controllers/userController");
 const router = express.Router();
 const path = require("path");
+const validacionRegister = require("../midellware/validacionRegister");
+const validacionesLogin = require("../midellware/validacionLogin");
 
 //vamos a requerir multer
 const multer = require("multer");
-//vamos a requerir express-validator
-const { body, check } = require("express-validator");
 
 //vamos a configurar multer
 const storage = multer.diskStorage({
@@ -14,35 +14,12 @@ const storage = multer.diskStorage({
     cb(null, "./public/images/avatars");
   },
   filename: function (req, file, cd) {
-    cd(null, Date.now() + "--!" + file.originalname);
+    cd(null, file.originalname + "--!" + Date.now());
   },
 });
 
 //vamos a guardar en una variable la ejecucion de multer
 const upload = multer({ storage });
-
-//vamos a guardar en una variable de array la info para validar con express-validator
-const validaciones = [
-  body("nombreyapellido").notEmpty().withMessage("Debes Completar este campo"),
-  body("nombreUsuario").notEmpty().withMessage("Debes Completar este campo"),
-  body("email")
-    .notEmpty()
-    .withMessage("Debes Completar este campo")
-    .bail()
-    .isEmail()
-    .withMessage("Debes copmpletar un Formato valido"),
-  body("password").notEmpty().withMessage("Contraseña 8 digitos"),
-  body("passwordRepit").notEmpty().withMessage("Contraseña 8 digitos"),
-];
-
-const validacionesLogin = [
-  check("emailLogin")
-    .isEmail()
-    .withMessage("Debes copmpletar un Formato valido"),
-  check("passwordLogin")
-    .isLength({ min: 8 })
-    .withMessage("La contraseña debe tener al menos 8 caracteres"),
-];
 
 router.get("/login", userController.login);
 router.post("/login", validacionesLogin, userController.procesLogin);
@@ -52,7 +29,7 @@ router.get("/register", userController.register);
 router.post(
   "/register",
   upload.single("imagenDelPerfil"),
-  validaciones,
+  validacionRegister,
   userController.procesRegister
 );
 

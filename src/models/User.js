@@ -6,6 +6,7 @@
 const fs = require("fs");
 const path = require("path");
 const dataBase = path.join(__dirname, "../database/user.json");
+const bcryptjs = require("bcryptjs");
 
 const user = {
   fileName: dataBase,
@@ -47,6 +48,7 @@ const user = {
     let newUser = {
       id: this.generarId(),
       ...userData,
+      password: bcryptjs.hashSync(userData.password, 10),
       imageUsuario: imageFinal,
     };
 
@@ -62,21 +64,4 @@ const user = {
     return true;
   },
 };
-
-/* console.log("data base :" + user.getData()); */
-/* console.log("obejetos" + user.findByPK(2)); */
-/* console.log("emailEncontrado : " + user.findByEmail("jajaja@gmail.com")); */
-/* console.log(
-  "usuario creado:" +
-    user.create({
-      emailLogin: "jurojuro@gmail.com",
-      nombreyapellido: "julietita",
-    })
-); */
-/* console.log(
-  "usuariogenerado:" + user.create({ name: "juli", emailLogin: "julu" })
-); */
-
-/* console.log("usuario borrado :" + user.deleteUser("2")); */
-
 module.exports = user;
