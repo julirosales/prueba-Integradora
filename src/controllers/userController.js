@@ -27,15 +27,27 @@ userController.procesRegister = (req, res) => {
     });
   }
   /* return res.send(errors); */ //lo hago para comprobar y ver que trae cada error
-
   //hice esa linea para verificar lo que me traia en los campos
   /* return res.send({ body: req.body, file: req.file }); */
 
-  user.create(req.body, req.file);
+  let userEnBaseDeDato = user.findByEmail(req.body.email); //lo hago para buscar si ya existe ese email
+  if (userEnBaseDeDato) {
+    //si existe entra al if y tira el erro
+    return res.render("register", {
+      errors: {
+        email: {
+          msg: "Este email ya está registrado",
+        },
+      },
+      oldData: req.body,
+    });
+  }
+
+  user.create(req.body, req.file); //si no existe sigue con la creacion
 
   return res.send("se guardo el usuario");
 };
-
+/* 
 userController.procesLogin = function (req, res) {
   let errors = validationResult(req);
   if (errors.isEmpty()) {
@@ -65,6 +77,12 @@ userController.procesLogin = function (req, res) {
   } else {
     res.render("login", { errors: errors.errors });
   }
+}; */
+/* userController.login = (req, res) => {
+  return res.render("login");
+}; */
+userController.procesLogin = (req, res) => {
+  console.log("body login:", req.body);
 };
 
 module.exports = userController;

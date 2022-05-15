@@ -24,9 +24,7 @@ const user = {
   findByEmail: function (email) {
     //obtener a todos los usuario por email
     let allUsers = this.getData();
-    let userFoundEmail = allUsers.find(
-      (oneUser) => oneUser.emailLogin === email
-    );
+    let userFoundEmail = allUsers.find((oneUser) => oneUser.email === email);
     return userFoundEmail;
   },
 

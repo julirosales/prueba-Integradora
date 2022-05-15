@@ -81,24 +81,29 @@
       </div>
     </header>
     <main>
-      <% if (typeof errors != "undefined"){ %>
-        <p>ERROR</p>
-        <ul>
-          <% for (let i =0; i < errors.length; i++){ %>
-          <li>
-            <%= errors[i].msg %>
-          </li>
-         <% }%>
-        </ul>
-      <%}%>
-      <form action="/user/login" method="POST" class="form-login">
+      <form
+        action="/user/login"
+        method="POST"
+        class="form2"
+        enctype="multipart/form-data"
+      >
         <div class="container-input">
           <div class="input1-group">
-            <input type="email" placeholder="Email@email.com" class="input1" name="emailLogin" class= "emailLogin <%=
-            locals.errors && errors.emailLogin ? "cajadeinput" : null %> " />
+            <input
+              type="email"
+              placeholder="Email@email.com"
+              class="input1"
+              name="emailLogin"
+              class="emailLogin"
+            />
           </div>
           <div class="input2-group">
-            <input type="password" placeholder="Contraseña" class="input2" name="passwordLogin" />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              class="input2"
+              name="passwordLogin"
+            />
           </div>
         </div>
         <div class="container-preguntas">
