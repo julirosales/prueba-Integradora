@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     cb(null, "./public/images/avatars");
   },
   filename: function (req, file, cd) {
-    cd(null, Date.now() + "-" + file.originalname);
+    cd(null, Date.now() + "--!" + file.originalname);
   },
 });
 
@@ -31,34 +31,21 @@ const validaciones = [
     .bail()
     .isEmail()
     .withMessage("Debes copmpletar un Formato valido"),
-  body("perfilUsuario").notEmpty().withMessage("Debes Completar este campo"),
-  body("password").notEmpty().withMessage("Contraseña alfanumerica"),
-  body("passwordRepit").notEmpty().withMessage("Contraseña alfanumerica"),
-  body("imagenDelPerfil").custom((value, { req }) => {
-    let file = req.files;
-    let aceptedExtencion = [".jpg", ".png"];
-    if (!file) {
-      throw new Error("tiene que subir una imagen");
-    } else {
-      let fileExtencion = path.extname(file.originalname);
-      if (!aceptedExtencion.includes(fileExtencion)) {
-        throw new Error(
-          `Las extenciones de archivos permitidas son ${aceptedExtencion.join(
-            "-"
-          )}`
-        );
-      }
-    }
-    return true;
-  }),
+  body("password").notEmpty().withMessage("Contraseña 8 digitos"),
+  body("passwordRepit").notEmpty().withMessage("Contraseña 8 digitos"),
 ];
 
-const validacionesLogin = [check("emailLogin").isEmail()
-.withMessage("Debes copmpletar un Formato valido"),
-check("passwordLogin").isLength({min : 8}).withMessage("La contraseña debe tener al menos 8 caracteres")]
+const validacionesLogin = [
+  check("emailLogin")
+    .isEmail()
+    .withMessage("Debes copmpletar un Formato valido"),
+  check("passwordLogin")
+    .isLength({ min: 8 })
+    .withMessage("La contraseña debe tener al menos 8 caracteres"),
+];
 
 router.get("/login", userController.login);
-router.post("/login",validacionesLogin, userController.procesLogin);
+router.post("/login", validacionesLogin, userController.procesLogin);
 //vamos a implementar multer como middelware en get register,despues del single va el nombre del unput que deseamos procesar
 router.get("/register", userController.register);
 //procesamiento de formulario de register y agregamos middelware de express-validator

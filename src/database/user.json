@@ -1,21 +1,45 @@
-[{ "id" : 1, 
-  "nombreyapellido":"pepito Carlos",
-  "nombreDeUsuario": "carmen",
-  "emailLogin" : "isidorajulieta1965@gmail.com", 
-  "passwordLogin" : "12345678"
-},
-
-{"id": 2,
-  "nombreyapellido":"Carlos Puente",
-  "nombreDeUsuario": "JAIME",
-  "emailLogin" : "jajaja@gmail.com", 
-  "passwordLogin" : "12345678"
-
-},
-{"id": 2,
-  "nombreyapellido":"Carlos Puente",
-  "nombreDeUsuario": "JAIME",
-  "emailLogin" : "jajaja@gmail.com", 
-  "passwordLogin" : "12345678"
-
-}]
+[
+  {
+    "id": 1,
+    "nombreyapellido": "ansdandandasjdlka",
+    "nombreUsuario": "jsadkjasdkjsadk",
+    "email": "isidorajulieta1965@gmail.com",
+    "password": "jkajdkaj",
+    "passwordRepit": "kakakkak"
+  },
+  {
+    "id": 2,
+    "nombreyapellido": "jujujujujuj",
+    "nombreUsuario": "jujujujujuj",
+    "email": "asd@asd.asd",
+    "radio": "Comprador",
+    "password": "adasdasd",
+    "passwordRepit": "dsadasda"
+  },
+  {
+    "id": 3,
+    "nombreyapellido": "jujujujujuj",
+    "nombreUsuario": "jujujujujuj",
+    "email": "asd@asd.asd",
+    "radio": "Comprador",
+    "password": "sadadasd",
+    "passwordRepit": "dasdadsa"
+  },
+  {
+    "id": 4,
+    "nombreyapellido": "asdsadaasdadad",
+    "nombreUsuario": "dsadasdas",
+    "email": "asd@asd.asd",
+    "password": "dasdasda",
+    "passwordRepit": "dsadsads"
+  },
+  {
+    "id": 5,
+    "nombreyapellido": "carla carl",
+    "nombreUsuario": "akjaksjdkasjdfk",
+    "email": "jsdkaj@gjfk.com",
+    "password": "aksjkajd",
+    "passwordRepit": "kjaskfdj",
+    "imageUsuario": "1652575995419--!facebook.png"
+  }
+]
