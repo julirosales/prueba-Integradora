@@ -66,6 +66,13 @@ main {
   .img-footer {
     font-size: 30px;
   }
+  .rojoErrores{
+    color: red
+  }
+  
+  .cajadeinput{
+    border-color: red;
+  }
   
   @media (min-width: 361px) {
     .form-login {
@@ -92,6 +99,14 @@ main {
     }
     .container-preguntas {
       font-size: 16px;
+    }
+    .rojoErrores{
+      color: red;
+
+    }
+    
+    .cajadeinput{
+      border-color: red;
     }
   }
   

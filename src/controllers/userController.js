@@ -3,7 +3,8 @@ const path = require("path");
 //vamos a requerir express-validation con metodo validationResoult
 const { validationResult } = require("express-validator");
 
-const user = require("../models/User.js");
+const user = require("../models/user.js");
+const bcryptjs = require("bcryptjs");
 
 const userController = {};
 
@@ -82,7 +83,29 @@ userController.procesLogin = function (req, res) {
   return res.render("login");
 }; */
 userController.procesLogin = (req, res) => {
-  console.log("body login:", req.body);
+ /*  console.log("body login:", req.body); *///verifico que me traiga el req.body
+let userToLogin = user.findByEmail(req.body.email)
+
+//console.log(userToLogin)
+if(userToLogin){
+  let isOkPassword = bcryptjs.compareSync(req.body.password === userToLogin.password)//compara la contra encriptada con al escrita
+  if(isOkPassword){
+    return res.send("okei puedes ingresar",{
+      errors: {
+              password: {
+                msg: "Contraseña no valida"
+              }
+              },
+            })
+  }
+}
+return  res.render("login",{
+  errors: {
+          email: {
+          msg: "No se encuentra este Email en la base de datos",
+          },// podemos poner las credenciales son invalidaas
+          },
+        })
 };
 
 module.exports = userController;

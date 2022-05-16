@@ -95,7 +95,8 @@
           <input type="text" name="nombreyapellido" placeholder="Nombre y
           Apellido" minlength="8" maxlength="20" class= "nombreyapellido <%=
           locals.errors && errors.nombreyapellido ? "cajadeinput" : null %> "
-          value="<%= locals.oldData ? oldData.nombreyapellido : null %>"/> <% if
+          value="<%= locals.oldData ? oldData.nombreyapellido : null %>"/>
+           <% if
           (locals.errors && errors.nombreyapellido){ %>
           <div class="rojoErrores"><%= errors.nombreyapellido.msg %></div>
           <% } %>

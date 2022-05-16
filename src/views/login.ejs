@@ -85,7 +85,6 @@
         action="/user/login"
         method="POST"
         class="form2"
-        enctype="multipart/form-data"
       >
         <div class="container-input">
           <div class="input1-group">
@@ -93,17 +92,29 @@
               type="email"
               placeholder="Email@email.com"
               class="input1"
-              name="emailLogin"
-              class="emailLogin"
-            />
+              name="email"
+              class="<%= locals.errors && errors.email ?
+              "cajadeinput" : null %> " 
+              />
+              <% if
+              (locals.errors && errors.email){ %>
+              <div class="rojoErrores"><%= errors.email.msg %></div>
+              <% } %> 
+            </div> 
           </div>
           <div class="input2-group">
             <input
               type="password"
               placeholder="Contraseña"
-              class="input2"
-              name="passwordLogin"
-            />
+              class="input2 <%= locals.errors && errors.password ?
+          "cajadeinput" : null %> " 
+              name="password"
+               />
+               <% if
+              (locals.errors && errors.password){ %>
+              <div class="rojoErrores"><%= errors.password.msg %></div>
+              <% } %>
+            </div>
           </div>
         </div>
         <div class="container-preguntas">

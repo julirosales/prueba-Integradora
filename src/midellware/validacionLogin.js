@@ -2,12 +2,12 @@
 const { check } = require("express-validator");
 
 const validacionesLogin = [
-  check("emailLogin")
+  check("email")
     .isEmail()
-    .withMessage("Debes copmpletar un Formato valido"),
-  check("passwordLogin")
+    .withMessage("Email invalido"),
+  check("password")
     .isLength({ min: 8 })
-    .withMessage("La contraseña debe tener al menos 8 caracteres"),
+    .withMessage("Contraseña invalida"),
 ];
 
 module.exports = validacionesLogin;

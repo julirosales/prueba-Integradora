@@ -4,6 +4,12 @@ const path = require("path");
 //para sesiones agrego esta variable
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+
+
+//este use hacer que lo qe se envie en el form por body te lo traiga el dato(siempre ponerlo lo mas arriba)
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 //traigo las rutas
 const userRouter = require("./routes/userRouter");
 const mainRouter = require("./routes/mainRouter");
@@ -30,9 +36,7 @@ app.use(cookieParser());
 
 const PORT = process.env.PORT || 3045;
 
-//este use hacer que lo qe se envie en el form por body te lo traiga el dato
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+
 
 app.use(express.static("public"));
 //para poder usar temple engine EJS

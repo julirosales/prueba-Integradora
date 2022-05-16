@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.get("/login", userController.login);
-router.post("/login", userController.procesLogin);
+router.post("/login",validacionesLogin, userController.procesLogin);
 //vamos a implementar multer como middelware en get register,despues del single va el nombre del unput que deseamos procesar
 router.get("/register", userController.register);
 //procesamiento de formulario de register y agregamos middelware de express-validator
