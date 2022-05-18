@@ -49,21 +49,7 @@
           <li><a href="#">Ayuda</a></li>
         </ul>
         <ul class="navbar-login">
-          <li>
-            <a href="/user/register"
-              >Creá tu cuenta<i class="fa-solid fa-address-card"></i
-            ></a>
-          </li>
-          <li>
-            <a href="/user/login"
-              >Ingresá <i class="fa-solid fa-arrow-right-to-bracket"></i
-            ></a>
-          </li>
-          <li>
-            <a href="/"
-              >Mis compras <i class="fa-solid fa-cart-shopping"></i
-            ></a>
-          </li>
+          <%- include('partials/nav') %>
         </ul>
       </nav>
       <section class="img-banner">
@@ -109,6 +95,8 @@
               class="input2 <%= locals.errors && errors.password ?
           "cajadeinput" : null %> " 
               name="password"
+              maxlength="8" title="contraseña
+          alfanumerica"
                />
                <% if
               (locals.errors && errors.password){ %>
@@ -118,6 +106,12 @@
           </div>
         </div>
         <div class="container-preguntas">
+          <div class="cointainer-checkbox">
+            <label for="recordarUsuario">
+            <input type="checkbox" name="recordarUsuario" id="recordarUsuario" class="checkbox">
+            Recordar Usuario
+          </label>
+            </div>
           <div class="container-contra-olvidada">
             <a href="#" class="contra-olvidada">¿Olvidaste tu contraseña?</a>
           </div>

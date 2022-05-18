@@ -16,5 +16,15 @@
     "password": "$2a$10$ts720s2iUhJfvxX7qayJfejM.JmTG6cRUzZQyUu6XVIXjMGp16THi",
     "passwordRepit": "fdasfdsa",
     "imageUsuario": "default-image.png"
+  },
+  {
+    "id": 3,
+    "nombreyapellido": "julieta rosales",
+    "nombreUsuario": "jujuju",
+    "email": "carla@carla.com",
+    "radio": "Comprador",
+    "password": "$2a$10$dkcqqzFgKuLMAQbfS.1LLexv8yM.Bpcfn5yKSGuT1oHF2tKKkH/AW",
+    "passwordRepit": "12345678",
+    "imageUsuario": "default-image.png"
   }
 ]

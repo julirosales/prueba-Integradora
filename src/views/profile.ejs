@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lato:ital,wght@0,400;1,700&family=Poppins:ital,wght@0,100;0,300;0,400;1,200;1,300;1,400&family=Roboto:wght@100;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="top-header">
+        <img
+          src="/images/logo-mercado-liebre.svg"
+          alt="logo mercado liebre"
+          class="logo"
+        />
+        <div class="search-bar">
+          <input type="search" />
+          <button type="button" class="btn-buscar">buscar</button>
+        </div>
+        <div class="subtitulo-header">
+          <p>
+            <i class="fa-solid fa-hand-holding-dollar"></i>Comprá en cuotas y
+            sin tarjeta de crédito
+          </p>
+        </div>
+      </div>
+      <nav class="navbar">
+        <ul class="navbar-menu">
+          <li><a href="#">Ofertas</a></li>
+          <li><a href="#">Tiendas Oficiales</a></li>
+          <li><a href="#">Vender</a></li>
+          <li><a href="#">Ayuda</a></li>
+        </ul>
+
+        <ul class="navbar-login">
+          <%- include('partials/nav') %>
+        </ul>
+      </nav>
+      <section class="img-banner"></section>
+      <div class="burger-container">
+        <div class="burger-menu">
+          <i class="fas fa-bars burger"></i>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h2>Hola<%= user.nombreUsuario %></h2>
+        <img
+          src="/images/avatars/<%= user.imageUsuario %>"
+          alt="Perfil"
+          class="ps-round ps-image ps-opacity-min"
+        />
+        <br />
+        <br />
+        <p class="box-email"><%= user.email %></p>
+      </div>
+    </main>
+  </body>
+</html>

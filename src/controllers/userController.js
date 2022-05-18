@@ -48,6 +48,62 @@ userController.procesRegister = (req, res) => {
 
   return res.send("se guardo el usuario");
 };
+
+userController.procesLogin = (req, res) => {
+  /*  console.log("body login:", req.body); */ //verifico que me traiga el req.body
+  let userToLogin = user.findByEmail(req.body.email);
+
+  //console.log(userToLogin)
+  if (userToLogin) {
+    let isOkPassword = bcryptjs.compareSync(
+      req.body.password,
+      userToLogin.password
+    );
+    console.log("contraseña encryp:", isOkPassword);
+    //compara la contra encriptada con al escrita
+    if (isOkPassword) {
+      /* console.log(req.session); */
+      delete userToLogin.password;
+      delete userToLogin.passwordRepit; // lo hago apra borrar la contra ya que en esta instancia no quiero que se vea
+      req.session.userLoger = userToLogin; //genero una propiedad en session llamda userloger(usuario logiado ) y le asigno el usertologin
+      /* console.log("ivancito:", req.session.userLoger); */
+      //vamos a poner cokkies
+      if (req.body.recordarUsuario) {
+        res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 }); //el valor de maxAge es en milisegundos
+      }
+
+      return res.redirect("/user/profile");
+    }
+    return res.render("login", {
+      errors: {
+        password: {
+          msg: "Contraseña no valida",
+        },
+      },
+    });
+  }
+  return res.render("login", {
+    errors: {
+      email: {
+        msg: "No se encuentra este Email en la base de datos",
+      }, // podemos poner las credenciales son invalidaas
+    },
+  });
+};
+
+userController.profile = (req, res) => {
+  /*   console.log("estas en profile:", req.session); */
+  /* console.log(req.cookies.userEmail); */
+  return res.render("profile", { user: req.session.userLoger });
+};
+
+userController.logout = (req, res) => {
+  res.clearCookie("userEmail"); //para borrar la cookie de la base y te desloguea automaticamente
+  req.session.destroy(); //eso hace es borrar todo lo que este en session de
+  return res.redirect("/");
+};
+module.exports = userController;
+
 /* 
 userController.procesLogin = function (req, res) {
   let errors = validationResult(req);
@@ -82,30 +138,3 @@ userController.procesLogin = function (req, res) {
 /* userController.login = (req, res) => {
   return res.render("login");
 }; */
-userController.procesLogin = (req, res) => {
- /*  console.log("body login:", req.body); *///verifico que me traiga el req.body
-let userToLogin = user.findByEmail(req.body.email)
-
-//console.log(userToLogin)
-if(userToLogin){
-  let isOkPassword = bcryptjs.compareSync(req.body.password === userToLogin.password)//compara la contra encriptada con al escrita
-  if(isOkPassword){
-    return res.send("okei puedes ingresar",{
-      errors: {
-              password: {
-                msg: "Contraseña no valida"
-              }
-              },
-            })
-  }
-}
-return  res.render("login",{
-  errors: {
-          email: {
-          msg: "No se encuentra este Email en la base de datos",
-          },// podemos poner las credenciales son invalidaas
-          },
-        })
-};
-
-module.exports = userController;
